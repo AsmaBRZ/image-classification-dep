@@ -8,15 +8,9 @@ from keras import regularizers
 import numpy as np
 from skimage.transform import resize
 from PIL import Image
-import pathlib
 from flask import jsonify 
 import tensorflow as tf
 
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-   
-ab = str(pathlib.Path(__file__).parent.absolute())+"/"
-
-WEIGHTS_PATH = ab+'my_model.h5'
 
 def create_model():
     W_DECAY = 0.0001
@@ -59,10 +53,12 @@ def create_model():
 
 
 model_w = create_model()
-model_w.load_weights(WEIGHTS_PATH) 
+model_w.load_weights('my_model.h5') 
 
 
 def predict(data):  
+    global model_w
+
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
     IMG_SHAPE = (32,32)
     image = Image.open(data)
