@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>image recognition</title>
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/Chart.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Chart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -48,11 +48,15 @@
 
     </div>
     <div class="made-by">Realized by: Asma BRAZI</div>
-    <div class="logo"><img src="./images/logo.png" alt="logo-university" ></div>
+    <div class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo-university" ></div>
 </body>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/Chart.js"></script>
-<script src="./js/jquery-3.5.1.min.js"></script>
+
+
+
+
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/Chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
 <script>
     var ctx = document.getElementById("barChart").getContext('2d');
     var barChart = new Chart(ctx, {
