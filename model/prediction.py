@@ -2,12 +2,12 @@ import h5py
 import json
 import numpy as np
 from PIL import Image
-import tensorflow as tf
 
 """
 from flask import jsonify 
 
 from skimage.transform import resize
+import tensorflow as tf
 
 
 model_w = None
