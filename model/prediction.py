@@ -1,11 +1,12 @@
 import h5py
 import json
 import numpy as np
-
 from PIL import Image
+import tensorflow as tf
+
 """
 from flask import jsonify 
-import tensorflow as tf
+
 from skimage.transform import resize
 
 
