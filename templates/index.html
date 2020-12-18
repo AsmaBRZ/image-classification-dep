@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>image recognition</title>
+    <title>Image classification</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Chart.css') }}">
@@ -108,6 +108,9 @@
                     document.getElementById("barChart").innerHTML =""
                     newChart(result.results.proba,result.results.class);
                     $("#class").html(result.results.class);
+                    var r = jQuery.parseJSON(result.results);
+                    newChart(r.proba,r.class);
+                    $("#class").html(r.class);
                  },
                 error: function (er) {
                     console.log('error: '+er);
