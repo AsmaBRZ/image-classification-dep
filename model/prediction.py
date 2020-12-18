@@ -11,6 +11,7 @@ from PIL import Image
 from flask import jsonify 
 import tensorflow as tf
 
+model_w = None
 
 def create_model():
     W_DECAY = 0.0001
@@ -51,13 +52,12 @@ def create_model():
 
     return model
 
-
-model_w = create_model()
-model_w.load_weights('my_model.h5') 
-
-
 def predict(data):  
     global model_w
+
+    if model_w is None:
+        model_w = create_model()
+        model_w.load_weights('my_model.h5') 
 
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
     IMG_SHAPE = (32,32)
