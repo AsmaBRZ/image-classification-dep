@@ -20,8 +20,8 @@ def photoRecognize():
     else:
       return render_template('index.html')
 
-    return jsonify(status='OK', results=prediction)
+    return jsonify(results=prediction)
 
-    
+
 if __name__ == '__main__':
    app.run(debug = True)
