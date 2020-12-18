@@ -14,8 +14,11 @@ def predict(data):
     global model_w
 
     if model_w is None:
-        print(os.path.abspath(__file__))
-        model_w = tf.keras.models.load_model(os.path.abspath(__file__)+'/my_model')
+        txt=os.path.abspath(__file__)
+        x = txt.split("/", 3)
+        my_path="/"+x[1]+"/"+x[2]+"/my_model"
+        print("************************************************m,y_path)
+        model_w = tf.keras.models.load_model(my_path)
         model_w.load_weights('my_model.h5') 
 
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
