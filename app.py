@@ -1,4 +1,5 @@
 from flask import Flask,request, render_template
+from model.prediction import *
 
 app = Flask(__name__,template_folder='templates')
 
