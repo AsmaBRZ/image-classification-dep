@@ -1,10 +1,5 @@
-from keras.models import Sequential
-from keras.layers import Convolution2D, MaxPooling2D,Conv2D,BatchNormalization
-from keras.layers.core import Flatten, Dense, Dropout, Lambda
 import h5py
 import json
-from keras.layers import Dense, Activation, Flatten, Dropout
-from keras import regularizers
 import numpy as np
 from skimage.transform import resize
 from PIL import Image
@@ -13,50 +8,11 @@ import tensorflow as tf
 
 model_w = None
 
-def create_model():
-    W_DECAY = 0.0001
-    IMG_SHAPE = (32, 32, 3)
-    NUM_CLASSES = 10
-    model = Sequential()
-    model.add(Conv2D(32, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY), input_shape = IMG_SHAPE))
-    model.add(Activation('relu')) 
-
-    model.add(Conv2D(32, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY)))
-    model.add(Activation('relu'))
-
-    model.add(MaxPooling2D(pool_size=(2,2)))
-    model.add(Dropout(0.2))
-    
-    model.add(Conv2D(64, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY)))
-    model.add(Activation('relu')) 
-
-    model.add(Conv2D(64, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY)))
-    model.add(Activation('relu')) 
-    
-    model.add(BatchNormalization())
-
-    model.add(MaxPooling2D(pool_size=(2,2)))
-    model.add(Dropout(0.3))
-    
-    model.add(Conv2D(128, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY)))
-    model.add(Activation('relu')) 
-
-    model.add(Conv2D(128, (3,3), padding='same', kernel_regularizer=regularizers.l2(W_DECAY)))
-    model.add(Activation('relu')) 
-    model.add(BatchNormalization())
-
-    model.add(MaxPooling2D(pool_size=(2,2)))
-    
-    model.add(Flatten())
-    model.add(Dense(NUM_CLASSES, activation='softmax'))
-
-    return model
-
 def predict(data):  
     global model_w
 
     if model_w is None:
-        model_w = create_model()
+        model_w = ntf.keras.models.load_model('my_model')
         model_w.load_weights('my_model.h5') 
 
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
