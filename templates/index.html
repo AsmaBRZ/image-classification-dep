@@ -10,7 +10,7 @@
         <h1>
             Hello World
         </h1>
-        <form action="" method="post" enctype="multipart/form-data" >
+        <form action="{{ url_for('photoRecognize')}}" method="post" enctype="multipart/form-data" >
             <label for="image_data">choisissez votre image</label>
             <input type="file" name="image_data" id="image_data">
             <button type="submit">Valider</button>
