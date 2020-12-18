@@ -1,12 +1,13 @@
 import tensorflow as tf
-"""
 import h5py
 import json
 import numpy as np
 from PIL import Image
 from skimage.transform import resize
 from flask import jsonify 
+
 model_w = None
+
 
 def predict(data):  
     global model_w
@@ -39,4 +40,3 @@ def predict(data):
     print(label,proba)
     obj = { 'class': label, 'proba': proba }
     return json.dumps(obj)
-"""
