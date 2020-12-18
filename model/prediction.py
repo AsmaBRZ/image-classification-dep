@@ -13,7 +13,7 @@ def predict(data):
     global model_w
 
     if model_w is None:
-        model_w = tf.keras.models.load_model('model')
+        model_w = tf.keras.models.load_model('saved_model/my_model')
         model_w.load_weights('my_model.h5') 
 
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
