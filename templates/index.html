@@ -14,7 +14,7 @@
 <body>
     <header class="text-center my-5">
         <h2 >Image Classification</h2>
-        <h5 class="mt-4">Choose an image from your gallery and predict the class. The model is able to recognize: airplane, automobile, bird,
+        <h5 class="mt-4">Choose an image from your gallery and predict the class. The model is able to recognize: <br> airplane, automobile, bird,
             chat, deer, dog, frog, horse, boat and truck.</h5>
     </header>
     <hr>
@@ -30,11 +30,12 @@
                             <label for="imageUpload"></label>
                         </div>
                         <div class="avatar-preview">
-                            <div id="imagePreview" style="background-image: url('./images/dog3.jpg');">
-                            </div>
+                            <div id="imagePreview" style="background-image: url('{{ url_for('static', filename='images/dog3.jpg') }}');">                          </div>
+                            
+
                         </div>
                     </div>
-                    <h3>Image Upload</h3>
+                    <h3>Upload an image</h3>
                 </form>
             </div>
             <div class="col-md-6 text-center">
@@ -64,7 +65,7 @@
         data: {
             labels: [""],
             datasets: [{
-                label: 'data-1',
+                label: 'Probabilty',
                 data: [70],
                 backgroundColor: "#8A1638"
             }]
@@ -104,7 +105,7 @@
                 contentType: false,
                 success: function (result) {
                     console.log(result)
-                    document.getElementById("barChart").html('');
+                    document.getElementById("barChart").innerHTML =""
                     newChart(result.results.proba,result.results.class);
                     $("#class").html(result.results.class);
                  },
