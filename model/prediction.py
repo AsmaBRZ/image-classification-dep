@@ -17,7 +17,7 @@ def predict(data):
         txt=os.path.abspath(__file__)
         x = txt.split("/", 3)
         my_path="/"+x[1]+"/"+x[2]+"/my_model"
-        print("************************************************m,y_path)
+        print("************************************************",my_path)
         model_w = tf.keras.models.load_model(my_path)
         model_w.load_weights('my_model.h5') 
 
