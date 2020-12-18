@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 from skimage.transform import resize
 from flask import jsonify 
+import os
 
 model_w = None
 
@@ -13,8 +14,8 @@ def predict(data):
     global model_w
 
     if model_w is None:
-        print()
-        model_w = tf.keras.models.load_model('my_model')
+        print(os.path.abspath(__file__))
+        model_w = tf.keras.models.load_model(os.path.abspath(__file__)+'/my_model')
         model_w.load_weights('my_model.h5') 
 
     CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
