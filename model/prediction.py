@@ -21,7 +21,7 @@ def predict(data):
         model_w = tf.keras.models.load_model(my_path)
         model_w.load_weights(my_file) 
 
-    CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+    CIFAR10_CLASSES = ["Airplane", "Automobile", "Bird", "Cat", "Deer", "Dog", "Frog", "Horse", "Ship", "Truck"]
     IMG_SHAPE = (32,32)
     image = Image.open(data)
     image=np.array(image)

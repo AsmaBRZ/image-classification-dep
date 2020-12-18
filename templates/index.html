@@ -106,8 +106,6 @@
                 success: function (result) {
                     console.log(result)
                     document.getElementById("barChart").innerHTML =""
-                    newChart(result.results.proba,result.results.class);
-                    $("#class").html(result.results.class);
                     var r = jQuery.parseJSON(result.results);
                     newChart(r.proba,r.class);
                     $("#class").html(r.class);
@@ -145,6 +143,7 @@
         data: {
             labels: [],
             datasets: [{
+                label: 'Probabilty',
                 data: [number],
                 backgroundColor: "#8A1638"
             }]
