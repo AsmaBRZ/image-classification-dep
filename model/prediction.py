@@ -5,10 +5,7 @@ from PIL import Image
 from skimage.transform import resize
 from flask import jsonify 
 """
-
-
 import tensorflow as tf
-
 
 model_w = None
 
